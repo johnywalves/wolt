@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<title>Wolt | Johny W. Alves</title>
+<style type="text/css">
+body {
+	background-color: #E5ECFF
+}
+
+img {
+	border: 0;
+}
+
+area {
+	outline: none
+}
+
+.map-viewport {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden
+}
+
+.level {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10
+}
+
+#map {
+	width: 2700px;
+	height: 2700px;
+	position: absolute;
+	left: -179px;
+	top: -1314px
+}
+
+#map img {
+	width: 2700px;
+	height: 2700px
+}
+
+#map .terrapurpura {
+	top: 484px;
+	left: 2207px
+}
+
+#map .terrapurpura img {
+	width: 350px;
+	height: 400px
+}
+
+#map .points {
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+	background-image: url("cidade.png")
+}
+
+#map .points:hover {
+	background-image: url("cidade_focus.png")
+}
+
+#info {
+	position: fixed;
+	font-family: arial, sans-serif;
+	width: 350px;
+	top: 10px;
+	right: 10px;
+	color: #FFF;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 11;
+	display: none;
+	padding: 10px
+}
+</style>
+</head>
+<body>
+	<div class="map-viewport">
+		<div id="map">
+			<img src="map.png" class="level" />
+			<!-- Terra Purpura -->
+			<div class="level terrapurpura">
+				<img id="img-terrapurpura" src="/img/blank.png" usemap="#map-terrapurpura" />
+				<map name="map-terrapurpura">
+					<area shape="poly" class="points"
+						coords="156,52,196,50,219,56,260,71,291,97,300,129,289,152,279,173,269,197,267,211,269,230,287,246,299,265,310,288,319,302,327,327,314,339,299,356,264,390,232,359,235,334,230,327,216,312,204,298,187,266,180,217,177,179,184,151,162,93,169,76"
+						sourcedata="terrapurpura" />
+					<area shape="poly" class="points" coords="37,16,67,25,81,29,134,43,148,75,146,87,160,119,161,129,173,155,74,115,69,90,37,87,25,68,26,30"
+						sourcedata="terrapurpura" />
+					<area shape="poly" class="points" coords="46,186,79,190,99,164,114,181,96,221,114,269,113,283,82,293,50,267,32,211,33,197"
+						sourcedata="terrapurpura" />
+				</map>
+			</div>
+			<!-- Nova Esperança -->
+			<div class="level points" style="left: 1427px; top: 1250px" sourcedata="destino"></div>
+			<!-- Reino de Styr -->
+			<div class="level points" style="left: 1095px; top: 1387px" SourceData="fortalezadarocha"></div>
+			<div class="level points" style="left: 997px; top: 1320px" sourcedata="portaodarocha"></div>
+			<div class="level points" style="left: 885px; top: 1517px" sourcedata="palaciobranco"></div>
+			<div class="level points" style="left: 895px; top: 1537px" SourceData="cidadedourada"></div>
+			<!-- Terras Quentes -->
+			<div class="level points" style="left: 1875px; top: 1630px" SourceData="castelo50estandartes"></div>
+			<!-- O Vale -->
+			<div class="level points" style="left: 758px; top: 1650px" sourcedata="fortalezadragao"></div>
+			<!-- Terra da Dádiva -->
+			<div class="level points" style="left: 592px; top: 940px" sourcedata="dadivadodeserto"></div>
+			<!-- Terra Ancestral -->
+			<div class="level points" style="left: 650px; top: 650px" sourcedata="sussurrobranco"></div>
+			<div class="level points" style="left: 1200px; top: 594px" sourcedata="novavitoria"></div>
+			<!-- Cidades dos Dragões -->
+			<div class="level points" style="left: 1072px; top: 2200px" sourcedata="portobelo"></div>
+		</div>
+	</div>
+	<div id="info"></div>
+</body>
+<script src="./lib/jquery.min.js"></script>
+<script src="./lib/jquery.easing.min.js"></script>
+<script src="./lib/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Reposicionar o mapa
+		$("#map").draggable();
+		// Pontos de interesse no mapa		
+		$(".points").mouseenter(function() {
+			$('#info').css({
+				'display' : 'block'
+			});
+			$.ajax({
+				url : 'tooltip/' + $(this).attr('sourcedata') + '.html',
+				success : function(data) {
+					$('#info').html(data);
+				}
+			});
+		});
+		$(".points").mouseleave(function() {
+			$('#info').css({
+				'display' : 'none'
+			});
+		});
+		$(".terrapurpura area").mouseenter(function() {
+			$('#img-terrapurpura').css({
+				'background-image' : 'url("./terrapurpura.png")'
+			});
+		});
+		$(".terrapurpura area").mouseleave(function() {
+			$('#img-terrapurpura').css({
+				'background-image' : 'none'
+			});
+		});
+	});
+</script>
+<img style="display: none" src="terrapurpura.png" />
+</html>
