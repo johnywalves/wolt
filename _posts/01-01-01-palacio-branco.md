@@ -1,7 +1,8 @@
 ---
 title: Palácio Branco
-layout: post
 kingdom: Reino de Styr
+layout: post
+type: spot
 locationX: 885
 locationY: 1517
 ---

@@ -1,7 +1,8 @@
 ---
 title: Nova Vitória
-layout: post
 kingdom: Terra Ancestral
+layout: post
+type: spot
 locationX: 1072
 locationY: 2200
 ---

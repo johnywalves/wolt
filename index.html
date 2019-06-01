@@ -3,5 +3,40 @@ layout: main
 ---
 
 {% for post in site.posts %}
-	<div class="level points" style="left: {{ post.locationX }}px; top: {{ post.locationY }}px" sourcedata="{{ post.slug }}"></div>
+	{% if post.type == "spot" %}
+		<img
+			id="{{ post.slug }}"
+			class="spots"
+			src="http://localhost:4000/assets/img/tag.svg"
+			style="left:{{ post.locationX }}px;top: {{ post.locationY }}px"
+			onclick="onClick(event);"
+			onmouseover="inSpot(event, '{{ post.title }}');"
+			onmouseout="outSpot(event);"
+		/>
+	{% elsif post.type == "region" %}
+		<div
+			class="regions"
+			style="left:{{ post.locationX }}px;top:{{ post.locationY }}px;width:{{ post.sizeX }}px;height:{{ post.sizeY }}px;"
+		>
+			<img 
+				id="img-{{ post.slug }}" 
+				src="/assets/img/blank.png" 
+				usemap="#map-{{ post.slug }}" 
+				class="level"
+				style="width:{{ post.sizeX }}px;height:{{ post.sizeY }}px;" 
+			/>
+			<map name="map-{{ post.slug }}">
+				{% for coord in post.coords %}
+					<area
+						id="{{ post.slug }}" 
+						shape="poly" 
+						coords="{{ coord }}"
+						onclick="onClick(event);"
+						onmouseover="inSpot(event, '{{ post.title }}');"
+						onmouseout="outSpot(event);"						
+					/>
+				{% endfor %}
+			</map>
+		</div>
+	{% endif %}
 {% endfor %}

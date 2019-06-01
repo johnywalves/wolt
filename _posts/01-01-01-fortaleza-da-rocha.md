@@ -1,7 +1,8 @@
 ---
 title: Fortaleza da Rocha
-layout: post
 kingdom: Reino de Styr
+layout: post
+type: spot
 locationX: 1095
 locationY: 1387
 ---

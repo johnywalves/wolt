@@ -1,6 +1,15 @@
 ---
 
 ---
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<h2>{{page.title}}</h2>
-<p>{{content | markdownify}}</p>
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }} | {{ site.title }}</title>
+</head>
+
+<body>
+    <h2>{{ page.title }}</h2>
+    <p>{{ content | markdownify }}</p>
+</body>

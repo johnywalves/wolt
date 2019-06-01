@@ -1,7 +1,8 @@
 ---
 title: Fortaleza Dragão
-layout: post
 kingdom: O Vale
+layout: post
+type: spot
 locationX: 758
 locationY: 1650
 ---

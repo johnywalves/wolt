@@ -1,7 +1,8 @@
 ---
 title: Portão da Rocha
-layout: post
 kingdom: Reino de Styr
+layout: post
+type: spot
 locationX: 997
 locationY: 1320
 ---

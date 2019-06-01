@@ -1,7 +1,8 @@
 ---
 title: Cidade Dourada
-layout: post
 kingdom: Reino de Styr
+layout: post
+type: spot
 locationX: 895
 locationY: 1537
 ---

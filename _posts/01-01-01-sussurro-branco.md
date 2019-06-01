@@ -1,7 +1,8 @@
 ---
 title: Sussurro Branco
-layout: post
 kingdom: Terra Ancestral
+layout: post
+type: spot
 locationX: 650
 locationY: 650
 ---

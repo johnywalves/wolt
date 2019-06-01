@@ -1,0 +1,7 @@
+<div style="display: none">
+    {% for post in site.posts %}
+        {% if post.type == "region" %}
+            <img src="/assets/img/{{ post.slug }}.png" />
+        {% endif %}
+    {% endfor %}
+</div>

@@ -1,7 +1,8 @@
 ---
 title: Dádiva do Deserto
-layout: post
 kingdom: Terra da Dádiva
+layout: post
+type: spot
 locationX: 592
 locationY: 940
 ---
