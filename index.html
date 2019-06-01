@@ -7,7 +7,7 @@ layout: main
 		<img
 			id="{{ post.slug }}"
 			class="spots"
-			src="http://localhost:4000/assets/img/tag.svg"
+			src="./assets/img/tag.svg"
 			style="left:{{ post.locationX }}px;top: {{ post.locationY }}px"
 			onclick="onClick(event);"
 			onmouseover="inSpot(event, '{{ post.title }}');"
@@ -20,7 +20,7 @@ layout: main
 		>
 			<img 
 				id="img-{{ post.slug }}" 
-				src="/assets/img/blank.png" 
+				src="./assets/img/blank.png" 
 				usemap="#map-{{ post.slug }}" 
 				class="level"
 				style="width:{{ post.sizeX }}px;height:{{ post.sizeY }}px;" 
