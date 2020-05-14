@@ -1,6 +1,6 @@
 ---
 title: Destino
-layout: post
+layout: entry
 type: spot
 kingdom: Nova Esperança
 locationX: 1427

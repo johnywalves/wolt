@@ -1,7 +1,7 @@
 ---
 title: Porto Belo
 kingdom: Cidades dos Dragões
-layout: post
+layout: entry
 type: spot
 locationX: 1072
 locationY: 2200

@@ -1,0 +1,31 @@
+{% include header.html %}
+
+<body class="map">
+	<div class="map-viewport">
+		<div id="map" style="left:-179px;top:-1314px;">
+			<img src="./assets/img/map.png" />
+			{{ content }}
+		</div>
+	</div>
+	<div id="label"></div>
+	<div id="modal">
+		<div class="content">
+			<div class="header">
+				<img src="./assets/icon/close.svg" class="spot" alt="Fechar" onClick="onCloseModal()" />
+			</div>
+			<div id="info"></div>
+		</div>
+	</div>
+</body>
+
+<script src="./assets/js/scripts.js"></script>
+
+<div style="display: none">
+	{% for post in site.posts %}
+	{% if post.type == "region" %}
+	<img src="./assets/img/{{ post.slug }}.png" />
+	{% endif %}
+	{% endfor %}
+</div>
+
+</html>

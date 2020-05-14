@@ -1,7 +1,7 @@
 ---
 title: Castelo dos 50 estandartes
 kingdom: Terras Quentes
-layout: post
+layout: entry
 type: spot
 locationX: 1875
 locationY: 1630

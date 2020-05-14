@@ -1,17 +1,18 @@
 ---
-layout: main
+title: Mapa
+layout: map
 ---
 
 {% for post in site.posts %}
 	{% if post.type == "spot" %}
 		<img
 			id="{{ post.slug }}"
-			class="spots"
-			src="./assets/img/tag.svg"
-			style="left:{{ post.locationX }}px;top: {{ post.locationY }}px"
-			onclick="onClick(event);"
-			onmouseover="inSpot(event, '{{ post.title }}');"
-			onmouseout="outSpot(event);"
+			class="spot"
+			src="./assets/icon/{{ post.layout }}.svg"
+			style="left:{{ post.locationX }}px;top:{{ post.locationY }}px"
+			onclick="onOpenModal(event.target.id)"
+			onmouseover="spotEnter(event,'{{ post.title }}')"
+			onmouseout="spotLeave(event)"
 		/>
 	{% elsif post.type == "region" %}
 		<div
@@ -31,9 +32,9 @@ layout: main
 						id="{{ post.slug }}" 
 						shape="poly" 
 						coords="{{ coord }}"
-						onclick="onClick(event);"
-						onmouseover="inSpot(event, '{{ post.title }}');"
-						onmouseout="outSpot(event);"						
+						onclick="onOpenModal(event.target.id)"
+						onmouseover="spotEnter(event, '{{ post.title }}')"
+						onmouseout="spotLeave(event)"						
 					/>
 				{% endfor %}
 			</map>

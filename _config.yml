@@ -3,4 +3,4 @@ author: Johny W. Alves
 
 permalink: ":slug"
 
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]    
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]

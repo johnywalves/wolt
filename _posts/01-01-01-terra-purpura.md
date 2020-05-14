@@ -1,7 +1,7 @@
 ---
 title: Terra Purpura
 kingdom: Terra Purpura
-layout: post
+layout: entry
 type: region
 locationX: 2207
 locationY: 484
