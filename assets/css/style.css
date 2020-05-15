@@ -7,9 +7,22 @@
 body {
 	--background: #F7F7F7;
 	--text: #434343;
-	--shadow: rgba(92, 92, 92, .8);
+	--textLink: #d23669;
+	--textVisited: #ffa7c4;
+	--shadow: #5c5c5ccc;
 	--fade: #00000088;
 	--water: #E5ECFF;
+}
+
+p,
+a {
+	margin: .5rem 0;
+	text-align: justify;
+}
+
+a {
+	color: var(--textLink);
+	text-decoration: none;
 }
 
 body {
@@ -19,6 +32,15 @@ body {
 
 body.map {
 	background-color: var(--water);
+	cursor: grab;
+}
+
+body.entry {
+	padding: 0 2rem;
+}
+
+body.entry header {
+	padding: 1rem;
 }
 
 area {
@@ -110,27 +132,27 @@ area {
 }
 
 #modal .spot {
+	position: relative;
 	margin-top: .5rem;
 	margin-right: 1rem;
 	height: 2rem;
 	width: 2rem;
 }
 
-#info {
+#modal .spot.external {
+	margin-top: .7rem;
+	height: 1.6rem;
+	width: 1.6rem;
+}
+
+article {
 	position: relative;
 	overflow-y: auto;
 	height: calc(100% - 3.5rem);
 	padding: 0 1rem;
 }
 
-#info h1 {
+article h1 {
 	border-bottom: 1px var(--shadow) solid;
 	margin-bottom: 1rem;
-}
-
-#modal p,
-a {
-	margin-bottom: 5px;
-	text-align: justify;
-	text-decoration: none;
 }

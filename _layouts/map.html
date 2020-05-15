@@ -1,4 +1,4 @@
-{% include header.html %}
+{% include head.html %}
 
 <body class="map">
 	<div class="map-viewport">
@@ -11,9 +11,12 @@
 	<div id="modal">
 		<div class="content">
 			<div class="header">
+				<a href="{{ site.baseurl }}/{{ post.slug }}.html" class="spot external">
+					<img src="./assets/icon/external.svg" alt="Link externo" />
+				</a>
 				<img src="./assets/icon/close.svg" class="spot" alt="Fechar" onClick="onCloseModal()" />
 			</div>
-			<div id="info"></div>
+			<article></article>
 		</div>
 	</div>
 </body>

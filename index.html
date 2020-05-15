@@ -4,11 +4,11 @@ layout: map
 ---
 
 {% for post in site.posts %}
-	{% if post.type == "spot" %}
+	{% if post.type == "spot" or post.type == "tale" %}
 		<img
 			id="{{ post.slug }}"
 			class="spot"
-			src="./assets/icon/{{ post.layout }}.svg"
+			src="./assets/icon/{{ post.type }}.svg"
 			style="left:{{ post.locationX }}px;top:{{ post.locationY }}px"
 			onclick="onOpenModal(event.target.id)"
 			onmouseover="spotEnter(event,'{{ post.title }}')"

@@ -1,6 +1,8 @@
 title: Wolt
+subtitle: Compartilhando histórias fantásticas
 author: Johny W. Alves
 
 permalink: ":slug"
+baseurl: /wolt
 
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]

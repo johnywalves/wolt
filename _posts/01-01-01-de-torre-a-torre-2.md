@@ -2,7 +2,7 @@
 title: Laboratório
 book: de-torre-a-torre
 chapter: 2
-layout: chapter
+layout: entry
 ---
 
 Contos retirados dos diários da Galard Guardarocha e da Conquista Albidin e sobre a última aparição do Lich
@@ -34,7 +34,7 @@ Tentativa de Compra do Anel
 
 ## Cidade da Mata Grande
 
-[Cidade da Mata Grande](#cidade-da-mata-grande)
+[Cidade da Mata Grande]({{ site.baseurl }}#cidade-da-mata-grande)
 Ataque do Lucar
   Grupo de Ladrões Contratados
 Notícia dos Ataques vindo das montanhas do norte  

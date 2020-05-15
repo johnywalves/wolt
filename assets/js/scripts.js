@@ -5,13 +5,15 @@ var bodyDiv = document.querySelector("body");
 var modalDiv = document.getElementById("modal");
 
 window.onload = function () {
-    window.addEventListener("mousedown", mouseDown, false);
-    window.addEventListener("mousemove", mouseMove, true);
-    window.addEventListener("mouseup", mouseUp, false);
+    if (mapDiv) {
+        window.addEventListener("mousedown", mouseDown, false);
+        window.addEventListener("mousemove", mouseMove, true);
+        window.addEventListener("mouseup", mouseUp, false);
 
-    var slug = window.location.hash.slice(1);
-    if (slug && slug !== "") {
-        onOpenModal(slug);
+        var slug = window.location.hash.slice(1);
+        slug && slug !== "" && onOpenModal(slug);
+    } else {
+        document.querySelectorAll("article a").forEach(function (object) { object.addEventListener("click", onClickLink) });
     }
 }
 
@@ -20,7 +22,7 @@ function mouseDown(e) {
     xPrev = e.clientX;
     yPrev = e.clientY;
     moving = true;
-    bodyDiv.style.cursor = "move";
+    bodyDiv.style.cursor = "grabbing";
 }
 
 function mouseMove(e) {
@@ -41,12 +43,20 @@ function mouseMove(e) {
 
 function mouseUp(e) {
     moving = false;
-    bodyDiv.style.cursor = "default";
+    bodyDiv.style.cursor = "grab";
 }
 
 function onClickLink(event) {
     event.preventDefault();
-    onOpenModal(event.target.href.split("#")[1]);
+
+    var slug = event.target.href.split("#")[1];
+    var pathname = window.location.pathname;
+
+    if (pathname[pathname.length - 1] !== "/") {
+        window.location = `${window.location.href.split("/").slice(0, -1).join("/")}/${slug}.html`
+    } else {
+        onOpenModal(slug);
+    }
 }
 
 function onOpenModal(slug) {
@@ -57,11 +67,14 @@ function onOpenModal(slug) {
             window.removeEventListener("mousemove", mouseMove, true);
             window.removeEventListener("mouseup", mouseUp, false);
 
-            history.pushState({ id: slug }, "", window.location.origin + "#" + slug);
+            history.pushState({ id: slug }, "", `${window.location.origin}${window.location.pathname}#${slug}`);
 
             modalDiv.style.display = "block";
-            document.getElementById("info").innerHTML = this.responseText.split('<span id="info">')[1].split('</span>')[0];
-            document.querySelectorAll("#info a").forEach(function (object) { object.addEventListener("click", onClickLink) });
+            bodyDiv.style.cursor = "default";
+
+            document.querySelector("article").innerHTML = this.responseText.split('<article>')[1].split('</article>')[0];
+            document.querySelectorAll("article a").forEach(function (object) { object.addEventListener("click", onClickLink) });
+            document.querySelector("#modal .content a").href = `./${slug}.html`
         }
     };
     xhttp.open("GET", slug + ".html", true);
@@ -70,7 +83,9 @@ function onOpenModal(slug) {
 
 function onCloseModal() {
     modalDiv.style.display = "none";
-    history.pushState({ id: "map" }, "", window.location.origin);
+    bodyDiv.style.cursor = "grab";
+
+    history.pushState({ id: "map" }, "", `${window.location.origin}${window.location.pathname}`);
     window.onload();
 }
 

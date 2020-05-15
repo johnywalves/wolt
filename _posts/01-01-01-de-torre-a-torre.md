@@ -1,10 +1,11 @@
 ---
 title: De Torre a Torre
-layout: tale
-type: spot
+layout: entry
+type: tale
 locationX: 845
 locationY: 1242
 ---
 
-[Capítulo 1: Passagem ao Norte](#de-torre-a-torre-1)  
-[Capítulo 2: Laboratório](#de-torre-a-torre-2)  
+[Capítulo 1: Passagem ao Norte]({{ site.baseurl }}#de-torre-a-torre-1)  
+
+[Capítulo 2: Laboratório]({{ site.baseurl }}#de-torre-a-torre-2)  

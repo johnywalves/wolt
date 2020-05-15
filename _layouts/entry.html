@@ -1,13 +1,29 @@
-{% include header.html %}
+{% include head.html %}
 
-<body>
-    <span id="info">
+<body class="entry">
+    <header>
+        <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+        <small>{{ site.subtitle }}</small>
+    </header>
+
+    <article>
+        {% for post in site.posts %}
+        {% if post.slug == page.book %}
+        <small>
+            Livro <a href="{{ site.baseurl }}#{{ post.slug }}">{{ post.title }}</a> - Capítulo {{ page.chapter }}
+        </small>
+        {% endif %}
+        {% endfor %}
+
         {% if page.kingdom %}
         <small>{{ page.kingdom }}</small>
         {% endif %}
+
         <h1>{{ page.title }}</h1>
         {{ content | markdownify }}
-    </span>
+    </article>
+
+    {% include footer.html %}
 </body>
 
-{% include footer.html %}
+<script src="./assets/js/scripts.js"></script>
