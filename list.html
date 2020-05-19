@@ -7,7 +7,7 @@ layout: list
 
 <article>
     {% for post in posts %}
-    {% if not post.chapter %}
+    {% if post.chapter == blank %}
     <p><a href="#{{ post.slug }}">{{ post.title }}</a></p>
     {% endif %}
     {% endfor %}
