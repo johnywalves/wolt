@@ -40,7 +40,13 @@ body.entry {
 }
 
 body.entry header {
+	display: flex;
+	justify-content: space-between;
 	padding: 1rem;
+}
+
+body.entry header .spot {
+	position: relative;
 }
 
 area {

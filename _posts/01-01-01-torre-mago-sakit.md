@@ -1,5 +1,5 @@
 ---
-title: Torre do Mago Saki
+title: Torre do Mago Sakit
 kingdom: Nova Esperança
 layout: entry
 type: spot
