@@ -1,7 +1,7 @@
 ---
 title: De Torre a Torre
 layout: entry
-type: tale
+type: book
 locationX: 845
 locationY: 1242
 ---

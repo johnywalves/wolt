@@ -4,16 +4,24 @@ layout: map
 ---
 
 {% for post in site.posts %}
-	{% if post.type == "spot" or post.type == "tale" %}
-		<img
+	{% if post.type == "spot" %}
+		<i
+			id='{{ post.slug }}'
+			class='fas fa-map-marker-alt spot'
+			style='left:{{ post.locationX }}px;top:{{ post.locationY }}px'
+			onclick='onOpenModal("{{ post.slug }}")'
+			onmouseover='spotEnter(event,"{{ post.title }}")'
+			onmouseout='spotLeave(event)'
+		></i>
+	{% elsif post.type == "book" %}
+		<i
 			id="{{ post.slug }}"
-			class="spot"
-			src="./assets/icon/{{ post.type }}.svg"
+			class='fas fa-book spot'
 			style="left:{{ post.locationX }}px;top:{{ post.locationY }}px"
-			onclick="onOpenModal(event.target.id)"
-			onmouseover="spotEnter(event,'{{ post.title }}')"
-			onmouseout="spotLeave(event)"
-		/>
+			onclick='onOpenModal("{{ post.slug }}")'
+			onmouseover='spotEnter(event,"{{ post.title }}")'
+			onmouseout='spotLeave(event)'
+		></i>
 	{% elsif post.type == "region" %}
 		<div
 			class="regions"

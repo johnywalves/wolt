@@ -3,6 +3,8 @@ var mapDiv = document.getElementById("map");
 var titleDiv = document.getElementById("label");
 var bodyDiv = document.querySelector("body");
 var modalDiv = document.getElementById("modal");
+var modalLoadingDiv = document.querySelector(".loading");
+var modalContentDiv = document.querySelector(".content");
 
 window.onload = function () {
     if (mapDiv) {
@@ -37,6 +39,10 @@ function mouseMove(e) {
             mapDiv.style.top = y + "px";
         }
     }
+
+    titleDiv.style.left = (e.clientX + 24) + "px";
+    titleDiv.style.top = (e.clientY - 24) + "px";
+
     xPrev = e.clientX;
     yPrev = e.clientY;
 }
@@ -60,21 +66,29 @@ function onClickLink(event) {
 }
 
 function onOpenModal(slug) {
+    modalDiv.style.display = "block";
+    modalLoadingDiv.style.display = "block";
+    modalContentDiv.style.display = "none";
+
+    bodyDiv.style.cursor = "wait";
+
+    window.removeEventListener("mousedown", mouseDown, false);
+    window.removeEventListener("mousemove", mouseMove, true);
+    window.removeEventListener("mouseup", mouseUp, false);
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            window.removeEventListener("mousedown", mouseDown, false);
-            window.removeEventListener("mousemove", mouseMove, true);
-            window.removeEventListener("mouseup", mouseUp, false);
-
             history.pushState({ id: slug }, "", `${window.location.origin}${window.location.pathname}#${slug}`);
 
-            modalDiv.style.display = "block";
+            modalLoadingDiv.style.display = "none";
+            modalContentDiv.style.display = "block";
+
             bodyDiv.style.cursor = "default";
 
             document.querySelector("article").innerHTML = this.responseText.split('<article>')[1].split('</article>')[0];
             document.querySelectorAll("article a").forEach(function (object) { object.addEventListener("click", onClickLink) });
-            document.querySelector("#modal .content a").href = `./${slug}.html`
+            document.querySelector("#modal .content a").href = `./${slug}.html`;
         }
     };
     xhttp.open("GET", slug + ".html", true);
@@ -83,6 +97,9 @@ function onOpenModal(slug) {
 
 function onCloseModal() {
     modalDiv.style.display = "none";
+    modalLoadingDiv.style.display = "none";
+    modalContentDiv.style.display = "none";
+
     bodyDiv.style.cursor = "grab";
 
     history.pushState({ id: "map" }, "", `${window.location.origin}${window.location.pathname}`);

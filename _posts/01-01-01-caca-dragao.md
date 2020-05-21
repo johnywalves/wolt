@@ -1,7 +1,7 @@
 ---
 title: Caça Dragão
 layout: entry
-type: tale
+type: book
 locationX: 886
 locationY: 1766
 ---

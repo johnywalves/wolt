@@ -9,12 +9,13 @@
 	</div>
 	<div id="label"></div>
 	<div id="modal">
+		<i class="fas fa-spinner loading"></i>
 		<div class="content">
 			<div class="header">
-				<a href="{{ site.baseurl }}/{{ post.slug }}.html" class="spot external">
-					<img src="./assets/icon/external.svg" alt="Link externo" />
+				<a href="{{ site.baseurl }}/{{ post.slug }}.html">
+					<i class="fas fa-expand-arrows-alt spot icon"></i>
 				</a>
-				<img src="./assets/icon/close.svg" class="spot" alt="Fechar" onClick="onCloseModal()" />
+				<i class="fas fa-times spot icon" onClick="onCloseModal()"></i>
 			</div>
 			<article></article>
 		</div>
