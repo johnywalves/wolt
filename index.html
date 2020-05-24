@@ -5,43 +5,25 @@ layout: map
 
 {% for post in site.posts %}
 	{% if post.type == "spot" %}
-		<i
-			id='{{ post.slug }}'
-			class='fas fa-map-marker-alt spot'
-			style='left:{{ post.locationX }}px;top:{{ post.locationY }}px'
-			onclick='onOpenModal("{{ post.slug }}")'
-			onmouseover='spotEnter(event,"{{ post.title }}")'
-			onmouseout='spotLeave(event)'
-		></i>
+		<svg id="{{ post.slug }}" style="left:{{ post.locationX }}px;top:{{ post.locationY }}px" onclick="onOpenModal('{{ post.slug }}')" onmouseover="spotEnter(event,'{{ post.title }}')" onmouseout="spotLeave(event)" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt" class="svg-inline--fa fa-map-marker-alt fa-w-12 spot" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>
 	{% elsif post.type == "book" %}
-		<i
-			id="{{ post.slug }}"
-			class='fas fa-book spot'
-			style="left:{{ post.locationX }}px;top:{{ post.locationY }}px"
-			onclick='onOpenModal("{{ post.slug }}")'
-			onmouseover='spotEnter(event,"{{ post.title }}")'
-			onmouseout='spotLeave(event)'
-		></i>
+		<svg id="{{ post.slug }}" style="left:{{ post.locationX }}px;top:{{ post.locationY }}px" onclick="onOpenModal('{{ post.slug }}')" onmouseover="spotEnter(event,'{{ post.title }}')" onmouseout="spotLeave(event)" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="book" class="svg-inline--fa fa-book fa-w-14 spot" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z"></path></svg>
 	{% elsif post.type == "region" %}
-		<div
-			class="regions"
-			style="left:{{ post.locationX }}px;top:{{ post.locationY }}px;width:{{ post.sizeX }}px;height:{{ post.sizeY }}px;"
-		>
-			<img 
+		<div class="regions" style="left:{{ post.locationX }}px;top:{{ post.locationY }}px;width:{{ post.sizeX }}px;height:{{ post.sizeY }}px;">
+			<img
 				id="img-{{ post.slug }}" 
-				src="./assets/img/blank.png" 
+				src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII="
 				usemap="#map-{{ post.slug }}" 
 				class="level"
 				style="width:{{ post.sizeX }}px;height:{{ post.sizeY }}px;" 
 			/>
 			<map name="map-{{ post.slug }}">
 				{% for coord in post.coords %}
-					<area
-						id="{{ post.slug }}" 
+					<area id="{{ post.slug }}" 
 						shape="poly" 
 						coords="{{ coord }}"
 						onclick="onOpenModal(event.target.id)"
-						onmouseover="spotEnter(event, '{{ post.title }}')"
+						onmouseover="spotEnter(event,'{{ post.title }}')"
 						onmouseout="spotLeave(event)"						
 					/>
 				{% endfor %}

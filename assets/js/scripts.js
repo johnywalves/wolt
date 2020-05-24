@@ -16,6 +16,7 @@ window.onload = function () {
         slug && slug !== "" && onOpenModal(slug);
     } else {
         document.querySelectorAll("article a").forEach(function (object) { object.addEventListener("click", onClickLink) });
+        document.getElementById("currentYear").innerHTML = new Date().getFullYear();
     }
 }
 
@@ -123,6 +124,6 @@ function spotLeave(e) {
     titleDiv.style.display = "none";
 
     if (document.getElementById(nameImg)) {
-        document.getElementById(nameImg).src = "./assets/img/blank.png";
+        document.getElementById(nameImg).src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII=";
     }
 };

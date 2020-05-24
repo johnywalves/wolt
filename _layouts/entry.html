@@ -1,24 +1,26 @@
 {% include head.html %}
 
 <body class="entry">
-    {% include header.html %}
+    <div id="wrap">
+        {% include header.html %}
 
-    <article>
-        {% for post in site.posts %}
-        {% if post.slug == page.book %}
-        <small>
-            Livro <a href="{{ site.baseurl }}#{{ post.slug }}">{{ post.title }}</a> - Capítulo {{ page.chapter }}
-        </small>
-        {% endif %}
-        {% endfor %}
+        <article>
+            {% for post in site.posts %}
+            {% if post.slug == page.book %}
+            <small>
+                Livro <a href="{{ site.baseurl }}#{{ post.slug }}">{{ post.title }}</a> - Capítulo {{ page.chapter }}
+            </small>
+            {% endif %}
+            {% endfor %}
 
-        {% if page.kingdom %}
-        <small>{{ page.kingdom }}</small>
-        {% endif %}
+            {% if page.kingdom %}
+            <small>{{ page.kingdom }}</small>
+            {% endif %}
 
-        <h1>{{ page.title }}</h1>
-        {{ content | markdownify }}
-    </article>
+            <h1>{{ page.title }}</h1>
+            {{ content | markdownify }}
+        </article>
+    </div>
 
     {% include footer.html %}
 </body>

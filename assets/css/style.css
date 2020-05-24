@@ -1,3 +1,13 @@
+@keyframes spin {
+	0% {
+		transform: rotateZ(0);
+	}
+
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
+
 * {
 	border: 0;
 	margin: 0;
@@ -14,7 +24,7 @@ body {
 	--water: #E5ECFF;
 }
 
-p,
+article p,
 article a {
 	margin: .5rem 0;
 	text-align: justify;
@@ -26,6 +36,8 @@ a {
 }
 
 body {
+	position: relative;
+	min-height: 100vh;
 	color: var(--text);
 	font-family: 'Lexend Deca', sans-serif;
 }
@@ -33,6 +45,13 @@ body {
 body.map {
 	background-color: var(--water);
 	cursor: grab;
+}
+
+body.map header h1 {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	z-index: 5;
 }
 
 body.entry {
@@ -169,12 +188,35 @@ article h1 {
 	margin-bottom: 1rem;
 }
 
-@keyframes spin {
-	0% {
-		transform: rotateZ(0);
-	}
+#wrap {
+	padding-bottom: 5rem;
+}
 
-	100% {
-		transform: rotateZ(360deg);
-	}
+footer {
+	position: absolute;
+	bottom: 0;
+	z-index: 5;
+}
+
+body.map footer {
+	right: 1rem;
+}
+
+body.entry footer {
+	width: calc(100% - 6rem);
+	height: 5rem;
+}
+
+body.map footer p {
+	width: 100%;
+	padding: 1rem 0;
+	text-align: right;
+}
+
+body.entry footer p {
+	width: 100%;
+	border-top: 1px var(--shadow) solid;
+	margin: 1rem;
+	padding: 1rem 0;
+	text-align: center;
 }
