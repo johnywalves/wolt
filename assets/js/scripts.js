@@ -16,8 +16,8 @@ window.onload = function () {
         slug && slug !== "" && onOpenModal(slug);
     } else {
         document.querySelectorAll("article a").forEach(function (object) { object.addEventListener("click", onClickLink) });
-        document.getElementById("currentYear").innerHTML = new Date().getFullYear();
     }
+    document.getElementById("currentYear").innerHTML = new Date().getFullYear();
 }
 
 function mouseDown(e) {

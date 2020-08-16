@@ -209,7 +209,7 @@ body.entry footer {
 
 body.map footer p {
 	width: 100%;
-	padding: 1rem 0;
+	padding-top: 1rem;
 	text-align: right;
 }
 
