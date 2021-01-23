@@ -6,7 +6,7 @@ locationX: 845
 locationY: 1242
 ---
 
-Conto do legado do Mago Sakit e derrota de um dos herdeiros dos senhores da morte  
+Relatos e narrativas organizadas dos diários de Jord, Miranda e da Conquista sobre o legado do Mago Sakit e seus conflitos com um dos herdeiros dos senhores da morte  
 
 [Capítulo 1: Passagem ao Norte]({{ site.baseurl }}#de-torre-a-torre-1)  
 
