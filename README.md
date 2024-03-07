@@ -1,9 +1,23 @@
 # Mapa Wolt
 
-Instalar Ruby + DevKit
+Navegação em mapa com mouse
 
-`gem install jekyll bundler`
+## Configuração de ambiente
 
-`bundler install`
+Baixe a versão mais recente do Ruby para o seu sistema operacional a partir do site oficial [https://www.ruby-lang.org/pt/documentation/installation/](Instalando o Ruby)
 
-`jekyll serve`
+```bash
+gem install jekyll bundler
+```
+
+Instalar os pacotes definidos pelo `Gemfile` do projeto
+
+```bash
+bundle install
+```
+
+Disponibilizar o serviço para acesso no endereço [http://127.0.0.1:4000/](http://127.0.0.1:4000/) com opção de reload automático ativada
+
+```bash
+bundle exec jekyll serve --livereload
+```
