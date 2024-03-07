@@ -16,7 +16,7 @@ Instalar os pacotes definidos pelo `Gemfile` do projeto
 bundle install
 ```
 
-Disponibilizar o serviço para acesso no endereço [http://127.0.0.1:4000/](http://127.0.0.1:4000/) com opção de reload automático ativada
+Disponibilizar o serviço para acesso no endereço [http://127.0.0.1:4000/wolt/](http://127.0.0.1:4000/wolt/) com opção de reload automático ativada
 
 ```bash
 bundle exec jekyll serve --livereload
